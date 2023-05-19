@@ -153,7 +153,7 @@ To check for js errors run:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [https://github.com/emmanuelsteven/BookStore-React-Redux/issues](issue page).
+Feel free to check the [https://github.com/emmanuelsteven/BookStore-React-Redux/issues]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
