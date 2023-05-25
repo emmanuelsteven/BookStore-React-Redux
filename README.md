@@ -1,8 +1,8 @@
-# mathzMagicians<a name="readme-top"></a>
+# BookStore<a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Math Magicians</b></h3>
+  <h3><b>BookStore</b></h3>
 
 </div>
 
@@ -32,7 +32,7 @@
 
 **[Bookstore]** This project that acts as book library  allows users to perform simple adding removing and editing books.
 
-## 🛠 Built With <a name="HTML, CSS, Javascript and React"></a>
+## 🛠 Built With <a name="HTML, CSS, Javascript and React-Redux"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
