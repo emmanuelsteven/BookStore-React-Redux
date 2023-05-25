@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
 const Forms = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
+
+  const eventTitle = (e) => {
+    setTitle(e.target.value);
+  };
+  const eventAuthor = (e) => {
+    setAuthor(e.target.value);
+  };
+  const eventCategory = (e) => {
+    setCategory(e.target.value);
+  };
+  const eventSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addBook({ title, author, category }));
+    setTitle('');
+    setAuthor('');
+    setCategory('');
+  };
+
   const Selectbk = [{
     value: '', label: 'category', disabled: true, selected: true,
   },
@@ -11,9 +35,18 @@ const Forms = () => {
   { value: 'Medicine', label: 'Medicine' },
   ];
   return (
-    <form className="inputfield">
-      <input type="text" placeholder="Book title" required id="title" name="title" />
-      <select name="category" id="category">
+    <form onSubmit={eventSubmit} className="inputfield">
+
+      <input type="text" placeholder="Book Title" required id="title" name="title" value={title} onChange={eventTitle} />
+
+      <input type="text" placeholder="Book Author" required id="author" name="author" value={author} onChange={eventAuthor} />
+
+      <select
+        name="category"
+        id="category"
+        value={category}
+        onChange={eventCategory}
+      >
         {Selectbk.map((category) => (
           <option
             key={category.value}
