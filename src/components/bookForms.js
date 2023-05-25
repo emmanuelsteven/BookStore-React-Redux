@@ -4,10 +4,15 @@ const Forms = () => {
   const Selectbk = [{
     value: '', label: 'category', disabled: true, selected: true,
   },
-  { value: 'action', label: 'action' }];
+  { value: 'Action', label: 'Action' },
+  { value: 'Documentary', label: 'Documentary' },
+  { value: 'History', label: 'History' },
+  { value: 'Science', label: 'Science' },
+  { value: 'Medicine', label: 'Medicine' },
+  ];
   return (
     <form className="inputfield">
-      <input type="text" placeholder="Book title" />
+      <input type="text" placeholder="Book title" required id="title" name="title" />
       <select name="category" id="category">
         {Selectbk.map((category) => (
           <option
