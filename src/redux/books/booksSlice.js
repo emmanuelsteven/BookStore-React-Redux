@@ -11,7 +11,6 @@ export const getBooks = createAsyncThunk('book/getBooks', async () => {
       item_id: book,
       ...response.data[book][0],
     }));
-    console.log(newItemz);
     return newItemz;
   } catch (error) {
     throw new Error('Failed to fetch books');

@@ -2,6 +2,7 @@ import { nanoid } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook, postBooks } from '../redux/books/booksSlice';
+import './styles/nav.css';
 
 const Forms = () => {
   const dispatch = useDispatch();
@@ -9,14 +10,15 @@ const Forms = () => {
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
 
-  const eventTitle = (e) => {
-    setTitle(e.target.value);
-  };
-  const eventAuthor = (e) => {
-    setAuthor(e.target.value);
-  };
-  const eventCategory = (e) => {
-    setCategory(e.target.value);
+  const onChange = (e) => {
+    if (e.target.name === 'title') {
+      setTitle(e.target.value);
+    } else if (e.target.name === 'author') {
+      setAuthor(e.target.value);
+    } else if (e.target.name === 'category') {
+      setCategory(e.target.value);
+      console.log(category);
+    }
   };
   const eventSubmit = (e) => {
     e.preventDefault();
@@ -34,42 +36,33 @@ const Forms = () => {
       setCategory('');
     }
   };
-
-  const Selectbk = [{
-    value: '', label: 'category', disabled: true, selected: true,
-  },
-  { value: 'Action', label: 'Action' },
-  { value: 'Documentary', label: 'Documentary' },
-  { value: 'History', label: 'History' },
-  { value: 'Science', label: 'Science' },
-  { value: 'Medicine', label: 'Medicine' },
-  ];
   return (
-    <form onSubmit={eventSubmit} className="inputfield">
+    <div className="addSection">
+      <hr />
+      <div className="addHeader">Add New Book</div>
+      <div className="input-cont">
+        <form onSubmit={eventSubmit} className="form-cont">
+          <input type="text" className="input-field" placeholder="Book Title" required id="title" name="title" value={title} onChange={onChange} />
 
-      <input type="text" placeholder="Book Title" required id="title" name="title" value={title} onChange={eventTitle} />
+          <input type="text" className="input-field" placeholder="Book Author" required id="author" name="author" value={author} onChange={onChange} />
 
-      <input type="text" placeholder="Book Author" required id="author" name="author" value={author} onChange={eventAuthor} />
-
-      <select
-        name="category"
-        id="category"
-        value={category}
-        onChange={eventCategory}
-      >
-        {Selectbk.map((category) => (
-          <option
-            key={category.value}
-            value={category.value}
-            disabled={category.disabled}
-            selected={category.selected}
+          <select
+            name="category"
+            id="category"
+            className="input-cat"
+            value={category}
+            onChange={onChange}
           >
-            {category.label}
-          </option>
-        ))}
-      </select>
-      <button type="submit">Add Book</button>
-    </form>
+            <option value="Category">Category</option>
+            <option value="Action">Action</option>
+            <option value="Romance">Romance</option>
+            <option value="Horror">Horror</option>
+            <option value="Adventure">Adventure</option>
+          </select>
+          <button type="submit" className="submit-btn">Add Book</button>
+        </form>
+      </div>
+    </div>
   );
 };
 
