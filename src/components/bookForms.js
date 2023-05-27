@@ -1,6 +1,7 @@
+import { nanoid } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, postBooks } from '../redux/books/booksSlice';
 
 const Forms = () => {
   const dispatch = useDispatch();
@@ -19,10 +20,19 @@ const Forms = () => {
   };
   const eventSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook({ title, author, category }));
-    setTitle('');
-    setAuthor('');
-    setCategory('');
+    if (title && author) {
+      const formData = {
+        item_id: nanoid(),
+        title,
+        author,
+        category,
+      };
+      dispatch(addBook(formData));
+      dispatch(postBooks(formData));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+    }
   };
 
   const Selectbk = [{

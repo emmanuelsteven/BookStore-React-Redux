@@ -1,22 +1,39 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { removeBook } from '../redux/books/booksSlice';
+
+import { useEffect } from 'react';
+import {
+  getBooks, removeBook, deleteBooks,
+} from '../redux/books/booksSlice';
 
 const BookList = () => {
-  const book = useSelector((state) => state.book.book);
+  const { book, isLoading } = useSelector((state) => state.book);
   const dispatch = useDispatch();
   const handleremoveBook = (itemId) => {
     dispatch(removeBook(itemId));
+    dispatch(deleteBooks(itemId));
   };
+
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch]);
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  }
   return (
     <div className="imp-book">
-      {book.map((book) => (
-        <div key={book.item_id} className="book-cont">
+      {book.map((key) => (
+        <div key={key.item_id} className="book-cont">
           <div>
-            <h4>{book.title}</h4>
-            <p>{book.author}</p>
+            <h4>{key.title}</h4>
+            <p>{key.author}</p>
             <button type="button">comments</button>
-            <button type="button" onClick={() => handleremoveBook(book.item_id)}>remove</button>
+            <button type="button" onClick={() => handleremoveBook(key.item_id)}>remove</button>
             <button type="button">edit</button>
           </div>
           <div>
@@ -36,7 +53,7 @@ const BookList = () => {
           </div>
         </div>
       ))}
-      ;
+
     </div>
   );
 };
