@@ -17,7 +17,6 @@ const Forms = () => {
       setAuthor(e.target.value);
     } else if (e.target.name === 'category') {
       setCategory(e.target.value);
-      console.log(category);
     }
   };
   const eventSubmit = (e) => {
