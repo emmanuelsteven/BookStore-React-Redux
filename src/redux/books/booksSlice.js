@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const appId = 'hIPZF3oXBIcGJLtDBiQL';
+const appId = 'oxD9wpgPJPrVlblpPp3x';
 const Url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books`;
 
 export const getBooks = createAsyncThunk('book/getBooks', async () => {
@@ -11,7 +11,6 @@ export const getBooks = createAsyncThunk('book/getBooks', async () => {
       item_id: book,
       ...response.data[book][0],
     }));
-    console.log(newItemz);
     return newItemz;
   } catch (error) {
     throw new Error('Failed to fetch books');

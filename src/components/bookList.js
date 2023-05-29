@@ -29,27 +29,33 @@ const BookList = () => {
     <div className="imp-book">
       {book.map((key) => (
         <div key={key.item_id} className="book-cont">
-          <div>
-            <h4>{key.title}</h4>
-            <p>{key.author}</p>
-            <button type="button">comments</button>
-            <button type="button" onClick={() => handleremoveBook(key.item_id)}>remove</button>
-            <button type="button">edit</button>
-          </div>
-          <div>
-            <AiOutlineLoading3Quarters />
-            <div>
-              <span>64%</span>
-              <span>completed</span>
+          <div className="author-section">
+            <div className="book-author">
+              <p className="cat">{key.category}</p>
+              <h4 className="aut">{key.title}</h4>
+              <p className="tit">{key.author}</p>
+            </div>
+            <div className="book-btn">
+              <button type="button" className="l-btn">comments</button>
+              <button className="l-btn rem" type="button" onClick={() => handleremoveBook(key.item_id)}>remove</button>
+              <button type="button" className="l-btn">edit</button>
             </div>
           </div>
-          <div>
-            <p>CURRENT CHAPTER</p>
-            <p>
-              Chapter
-              {book.chapter}
+          <div className="comp-icon">
+            <div className="progress">
+              <AiOutlineLoading3Quarters />
+            </div>
+            <div className="prog-details">
+              <span className="comp-percent">64%</span>
+              <span className="comp-status">completed</span>
+            </div>
+          </div>
+          <div className="current-cont">
+            <p className="current-chpt">CURRENT CHAPTER</p>
+            <p className="chapter-1">
+              Chapter 15
             </p>
-            <button type="button">UPDATE PROGRESS</button>
+            <button type="button" className="upBtn">UPDATE PROGRESS</button>
           </div>
         </div>
       ))}
