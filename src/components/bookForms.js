@@ -19,6 +19,26 @@ const Forms = () => {
       setCategory(e.target.value);
     }
   };
+
+  const getPlaceholder = (name) => {
+    if (name === 'title') {
+      return 'Book Title';
+    } if (name === 'author') {
+      return 'Book Author';
+    } if (name === 'category') {
+      return 'Category';
+    }
+    return '';
+  };
+
+  const onFocus = (e) => {
+    e.target.placeholder = '';
+  };
+
+  const onBlur = (e) => {
+    e.target.placeholder = getPlaceholder(e.target.name);
+  };
+
   const eventSubmit = (e) => {
     e.preventDefault();
     if (title && author) {
@@ -41,9 +61,31 @@ const Forms = () => {
       <div className="addHeader">Add New Book</div>
       <div className="input-cont">
         <form onSubmit={eventSubmit} className="form-cont">
-          <input type="text" className="input-field" placeholder="Book Title" required id="title" name="title" value={title} onChange={onChange} />
+          <input
+            type="text"
+            className="input-field"
+            placeholder="Book Title"
+            required
+            id="title"
+            name="title"
+            value={title}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
 
-          <input type="text" className="input-field" placeholder="Book Author" required id="author" name="author" value={author} onChange={onChange} />
+          <input
+            type="text"
+            className="input-field"
+            placeholder="Book Author"
+            required
+            id="author"
+            name="author"
+            value={author}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
 
           <select
             name="category"
@@ -51,6 +93,8 @@ const Forms = () => {
             className="input-cat"
             value={category}
             onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
           >
             <option value="Category">Category</option>
             <option value="Action">Action</option>

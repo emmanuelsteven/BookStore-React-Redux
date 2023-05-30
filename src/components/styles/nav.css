@@ -24,10 +24,9 @@
 }
 
 .icon-img {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 0 0 55rem;
-  padding: 0.875rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0 0 60rem;
   color: #0290ff;
 }
 
@@ -57,7 +56,7 @@
 
 hr {
   margin: 4rem 0;
-  border: 1px solid #888;
+  border: 1px solid #e8e8e8;
 }
 
 .addHeader {
@@ -74,12 +73,13 @@ hr {
 }
 
 .form_cont {
+  display: flex;
   padding: 1rem 6rem;
   max-width: 100%;
 }
 
 .input-field {
-  width: 18rem;
+  width: 30.5rem;
   margin: 1.188rem 2.125rem 0 0;
   padding: 0.7rem 1.5rem 0.7rem 1.8rem;
   border-radius: 4px;
@@ -88,7 +88,7 @@ hr {
 }
 
 .input-cat {
-  width: 13rem;
+  width: 13.5rem;
   margin: 1.188rem 2.125rem 0 0;
   padding: 0.7rem 1.5rem 0.7rem 1.8rem;
   border-radius: 4px;
@@ -121,7 +121,7 @@ input::placeholder {
   align-items: center;
   justify-content: space-between;
   padding: 3rem;
-  margin: 2rem 4rem;
+  margin: 3rem 6rem 0.5rem 6rem;
   background-color: white;
 }
 
@@ -209,6 +209,9 @@ input::placeholder {
 }
 
 .current-cont {
+  border-left: 1px solid #e8e8e8;
+  padding-left: 8rem;
+  padding-right: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -216,19 +219,16 @@ input::placeholder {
 }
 
 .current-chpt {
-  margin: 0.8rem 0;
+  margin: 0 0 5px 4px;
   opacity: 0.5;
   font-family: RobotoSlab, sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 300;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
   color: #121212;
 }
 
 .chapter-1 {
-  margin: 0.8rem 0;
+  margin: 4px 0 25px 4px;
   font-family: RobotoSlab, sans-serif;
   font-size: 1rem;
   font-weight: 300;
@@ -240,8 +240,15 @@ input::placeholder {
 }
 
 .upBtn {
-  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  font-family: RobotoSlab, sans-serif;
   background-color: #0290ff;
   color: #fff;
+  font-size: 0.813rem;
+  text-align: center;
+  font-weight: 300;
   border: none;
+  outline: none;
+  border-radius: 3px;
+  padding: 0.5rem 1.6rem;
+  margin: 0 0 0 4px;
 }
