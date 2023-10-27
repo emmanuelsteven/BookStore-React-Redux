@@ -9,7 +9,8 @@ const Navi = () => (
       <Link to="/">BookStore CMS </Link>
     </h1>
     <div className="navlinks">
-      <Link to="/">Books</Link>
+      <Link to="/">Home</Link>
+      <Link to="/books">Books</Link>
       <Link to="/categories">Categories</Link>
     </div>
     <div className="icon-imgs">
