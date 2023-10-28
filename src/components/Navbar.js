@@ -6,7 +6,7 @@ import './styles/nav.css';
 const Navi = () => (
   <nav className="nav-container">
     <h1 className="navtitle">
-      <Link to="/">BookStore CMS </Link>
+      <Link to="/">AfricanCentinaryLib</Link>
     </h1>
     <div className="navlinks">
       <Link to="/">Home</Link>

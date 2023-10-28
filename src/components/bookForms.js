@@ -97,11 +97,11 @@ const Forms = () => {
           <input
             type="text"
             className="input-field"
-            placeholder="Book Image URL" // Placeholder for the image URL input
+            placeholder="Book Image URL"
             id="bookImg"
             name="bookImg"
             value={bookImg}
-            onChange={onChange} // Update the bookImg state
+            onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}
           />
