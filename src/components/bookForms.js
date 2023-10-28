@@ -9,6 +9,7 @@ const Forms = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
+  const [bookImg, setBookImg] = useState('');
 
   const onChange = (e) => {
     if (e.target.name === 'title') {
@@ -17,6 +18,8 @@ const Forms = () => {
       setAuthor(e.target.value);
     } else if (e.target.name === 'category') {
       setCategory(e.target.value);
+    } else if (e.target.name === 'bookImg') {
+      setBookImg(e.target.value);
     }
   };
 
@@ -27,6 +30,9 @@ const Forms = () => {
       return 'Book Author';
     } if (name === 'category') {
       return 'Category';
+    }
+    if (name === 'bookImg') {
+      return 'BookImg';
     }
     return '';
   };
@@ -47,12 +53,14 @@ const Forms = () => {
         title,
         author,
         category,
+        bookImg,
       };
       dispatch(addBook(formData));
       dispatch(postBooks(formData));
       setTitle('');
       setAuthor('');
       setCategory('');
+      setBookImg('');
     }
   };
   return (
@@ -82,6 +90,17 @@ const Forms = () => {
             id="author"
             name="author"
             value={author}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
+          <input
+            type="text"
+            className="input-field"
+            placeholder="Book Image URL"
+            id="bookImg"
+            name="bookImg"
+            value={bookImg}
             onChange={onChange}
             onFocus={onFocus}
             onBlur={onBlur}

@@ -29,6 +29,7 @@ const BookList = () => {
     <div className="imp-book">
       {book.map((key) => (
         <div key={key.item_id} className="book-cont">
+          <img src={key.bookImg} alt={key.title} className="book-image" />
           <div className="author-section">
             <div className="book-author">
               <p className="cat">{key.category}</p>
